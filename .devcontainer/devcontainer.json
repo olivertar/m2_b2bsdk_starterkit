@@ -1,5 +1,5 @@
 {
-  "name": "b2bsdkstarterkit-devcontainer",
+  "name": "magento2-devcontainer",
   "dockerComposeFile": [
     "docker-compose.yml",
     "magento2-devcontainer/compose/magento/2.4.8/docker-compose.yml",
