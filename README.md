@@ -8,6 +8,7 @@ A starter for building B2B commerce on Magento 2, pre-wired with the [Orangecat 
 
 - [Docker](https://www.docker.com/products/docker-desktop/) (4+ CPUs, 8 GB+ RAM allocated)
 - [VS Code](https://code.visualstudio.com/) with the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension
+- **Magento Marketplace access keys** — required to download packages from `repo.magento.com`. Get them at [commercemarketplace.adobe.com](https://commercemarketplace.adobe.com/) → My Profile → Access Keys.
 
 ## Quickstart
 
@@ -16,7 +17,19 @@ A starter for building B2B commerce on Magento 2, pre-wired with the [Orangecat 
    git clone --recurse-submodules https://github.com/olivertar/m2_b2bsdk_starterkit.git
    cd m2_b2bsdk_starterkit
    ```
-2. **Open in VS Code** and select **Reopen in Container** when prompted (or via the Command Palette: `Dev Containers: Reopen in Container`).
+2. **Create `auth.json`** in the project root with your Magento Marketplace keys:
+   ```json
+   {
+       "http-basic": {
+           "repo.magento.com": {
+               "username": "<public-key>",
+               "password": "<private-key>"
+           }
+       }
+   }
+   ```
+   > This file is gitignored. Without it, `composer install` will be skipped and setup will not complete.
+3. **Open in VS Code** and select **Reopen in Container** when prompted (or via the Command Palette: `Dev Containers: Reopen in Container`).
 3. **Wait for setup** — the container will install Magento, enable all B2B SDK modules, and run the setup upgrade automatically.
 4. **Access the storefront** at [http://localhost:8000](http://localhost:8000)
 5. **Access the admin panel** at [http://localhost:8000/admin](http://localhost:8000/admin) — credentials: `admin` / `admin123`
